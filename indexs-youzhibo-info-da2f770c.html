@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优直播 · 轻量导航介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fce9d8 0%, #fde6cf 45%, #fcdbbc 100%);
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #2e241d;
+        }
+
+        .page-wrapper {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* 顶部导航 */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 245, 235, 0.7);
+            backdrop-filter: blur(2px);
+            padding: 0.9rem 2rem;
+            border-radius: 48px;
+            margin-bottom: 3.5rem;
+            box-shadow: 0 6px 18px rgba(180, 110, 50, 0.12);
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+        }
+
+        .nav-logo {
+            font-weight: 600;
+            font-size: 1.3rem;
+            letter-spacing: 0.02em;
+            background: #fff2e6;
+            padding: 0.25rem 1rem;
+            border-radius: 30px;
+            color: #753f1f;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            font-size: 1rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4f3426;
+            font-weight: 470;
+            padding: 0.3rem 0.1rem;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.15s;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #b3724b;
+            color: #7f4a2b;
+        }
+
+        .nav-cta {
+            background: #f0d5bd;
+            padding: 0.4rem 1.6rem;
+            border-radius: 40px;
+            font-weight: 500;
+            color: #3c2318;
+            border: none;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 6px rgba(150, 80, 30, 0.12);
+        }
+
+        .nav-cta:hover {
+            background: #ebc9aa;
+            box-shadow: 0 4px 12px rgba(150, 80, 30, 0.18);
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            margin-bottom: 3.2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.7rem;
+            font-weight: 580;
+            background: linear-gradient(130deg, #633b22, #9f6a44);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.18rem;
+            max-width: 700px;
+            margin: 1.3rem auto 0;
+            color: #452e21;
+            line-height: 1.6;
+            background: rgba(255, 242, 229, 0.4);
+            padding: 0.9rem 1.6rem;
+            border-radius: 80px;
+            backdrop-filter: blur(1px);
+        }
+
+        /* 内容卡片通用 */
+        .card {
+            background: #ffffffdd;
+            background: #fff;
+            border-radius: 28px;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 12px 32px rgba(160, 90, 40, 0.10);
+            backdrop-filter: blur(2px);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 38px rgba(140, 75, 30, 0.13);
+        }
+
+        .intro-card {
+            margin-bottom: 2.5rem;
+            background: #fffaf5;
+            border-left: 6px solid #e7b68b;
+        }
+
+        .intro-card p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 0.8rem;
+        }
+
+        .intro-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 三个场景模块（差异化布局） */
+        .scenes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.8rem;
+            margin: 2.8rem 0 2.4rem;
+        }
+
+        .scene-card {
+            background: #fffcf7;
+            border-radius: 28px;
+            padding: 1.8rem 1.6rem 2rem;
+            box-shadow: 0 10px 22px rgba(170, 100, 45, 0.08);
+            transition: all 0.2s;
+            border: 1px solid #f7e3d1;
+        }
+
+        .scene-card:hover {
+            background: #fffdfa;
+            border-color: #dbb391;
+            box-shadow: 0 14px 28px rgba(150, 80, 35, 0.12);
+        }
+
+        .scene-card h3 {
+            font-size: 1.4rem;
+            font-weight: 540;
+            color: #4f311e;
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .scene-card h3 span {
+            background: #f1d7c0;
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-size: 1.1rem;
+        }
+
+        .scene-card p {
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: #3f2c1f;
+        }
+
+        /* 常见说明 (FAQ 摘要) */
+        .faq-section {
+            margin: 1.8rem 0 2.8rem;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem 2rem;
+        }
+
+        .faq-item {
+            background: #fff9f2;
+            padding: 1.2rem 1.6rem;
+            border-radius: 30px;
+            border-left: 5px solid #dcb187;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 570;
+            color: #653f25;
+            margin-bottom: 0.2rem;
+            font-size: 1.06rem;
+        }
+
+        .faq-item p {
+            color: #3f2a1b;
+            font-size: 0.96rem;
+            line-height: 1.6;
+        }
+
+        /* 链接按钮感 */
+        .link-button {
+            display: inline-block;
+            background: #f6e3d1;
+            border-radius: 40px;
+            padding: 0.5rem 1.8rem;
+            font-weight: 520;
+            color: #3b2316;
+            text-decoration: none;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 6px rgba(130, 70, 20, 0.08);
+            border: none;
+            font-size: 1rem;
+        }
+
+        .link-button:hover {
+            background: #edd3b9;
+            box-shadow: 0 4px 14px rgba(130, 70, 20, 0.18);
+        }
+
+        .inline-link {
+            color: #7f4e2d;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1.5px solid #dcb48c;
+            padding-bottom: 1px;
+            transition: border-color 0.2s, color 0.15s;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #a86d42;
+            color: #542f19;
+        }
+
+        .text-soft {
+            color: #4b3324;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 2.2rem;
+            padding: 1.2rem 0 0.2rem;
+            border-top: 1px solid #ebd1bb;
+            font-size: 0.9rem;
+            color: #523c2b;
+        }
+
+        /* 响应式 */
+        @media (max-width: 800px) {
+            .scenes-grid {
+                grid-template-columns: 1fr;
+                gap: 1.4rem;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .top-nav {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 0.9rem 1.2rem;
+                border-radius: 32px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 1rem 1.4rem;
+                margin-top: 0.3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .card {
+                padding: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1.2rem 1rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                padding: 0.6rem 1rem;
+                border-radius: 48px;
+            }
+
+            .scene-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .faq-item {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <span class="nav-logo">📺 优直播·指南</span>
+        <div class="nav-links">
+            <a href="#intro">了解</a>
+            <a href="#scenes">场景</a>
+            <a href="#faq">说明</a>
+            <span class="nav-cta"><a href="https://indexs-youzhibo.com" style="text-decoration:none;color:inherit;font-weight:500;">优直播</a></span>
+        </div>
+    </nav>
+
+    <!-- Hero 区域 -->
+    <section class="hero">
+        <h1>直播服务 · 轻量导航</h1>
+        <p>从内容投流到互动设计，<a href="https://indexs-youzhibo.com" class="inline-link">优直播</a> 为创作者与机构提供一套高效、克制的直播技术方案。</p>
+    </section>
+
+    <!-- 核心介绍（知识型段落） -->
+    <section class="card intro-card" id="intro">
+        <p>直播早已不是简单的“开播+推流”。一场流畅的直播背后涉及编码参数、边缘节点调度、实时转码、延时控制、互动信令等诸多环节。<a href="https://indexs-youzhibo.com" class="inline-link">优直播</a> 在平台层面整合了这些基础能力，让使用者不必从头搭建底层链路。</p>
+        <p>从选题到结束，每个阶段都有对应的工具逻辑：预播页面配置、多机位切换、低延迟 rtmp 推流、即时弹幕与礼物系统，乃至播出后的数据复盘。理解这些模块如何协作，能帮助团队减少试错成本，把注意力放回内容本身。</p>
+        <p>下文从三个常见切入场景展开，并附上一些常见疑问的简要整理，供刚接触或希望优化现有流程的团队参考。</p>
+    </section>
+
+    <!-- 三个场景模块 -->
+    <section id="scenes">
+        <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; margin-bottom:0.6rem;">
+            <h2 style="font-weight:520;color:#4a2f1c; font-size:1.6rem;">三个切入场景</h2>
+            <span style="font-size:0.9rem;color:#6f4f34;background:#fbede1;padding:0.2rem 1rem;border-radius:30px;">非模板式组合</span>
+        </div>
+        <div class="scenes-grid">
+            <div class="scene-card">
+                <h3><span>①</span> 知识分享与课程</h3>
+                <p>讲师端需要稳定的屏幕共享与白板延时补偿。<a href="https://indexs-youzhibo.com" class="inline-link">优直播</a> 支持自定义布局与多路流混音，适合将 PPT、实操画面与讲师特写按需组合。回放自动生成章节标记，方便学员后续复习。</p>
+            </div>
+            <div class="scene-card">
+                <h3><span>②</span> 小型发布会 / 访谈</h3>
+                <p>多机位切换与远程连麦是这类场景的核心需求。平台提供低延迟的 srt 接入与导播台控制，主持人可在界面上预监四路信号。配合即时字幕与延时播出，保证活动节奏可控。</p>
+            </div>
+            <div class="scene-card">
+                <h3><span>③</span> 电商或产品演示</h3>
+                <p>商品上架、优惠券弹窗与实时库存同步往往需要直播间与后端联动。<a href="https://indexs-youzhibo.com" class="inline-link">优直播</a> 开放了商品卡片组件与 webhook 回调，允许技术团队将直播状态与自有商城对接，实现边播边卖、数据实时回流。</p>
+            </div>
+        </div>
+        <p style="margin-top:0.2rem;font-size:0.98rem;color:#42301f;background:#f7eade;padding:0.5rem 1.2rem;border-radius:40px;display:inline-block;">每个场景可根据实际规模选择单流或多路传输，平台不限制同时在线频道数。</p>
+    </section>
+
+    <!-- 常见说明 (FAQ 摘要) -->
+    <section class="faq-section" id="faq">
+        <h2 style="font-weight:510;color:#452b1b; margin-bottom:1rem; font-size:1.5rem;">常见说明</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <strong>直播延迟大概多少？</strong>
+                <p>基于 webrtc 的推流端可控制在 1–2 秒内；rtmp/hls 播放端默认 4–8 秒，也可调整分段大小换取更低延迟。</p>
+            </div>
+            <div class="faq-item">
+                <strong>是否需要自己准备转码服务器？</strong>
+                <p>不需要。<a href="https://indexs-youzhibo.com" class="inline-link">优直播</a> 提供云端转码与多分辨率输出，用户只需推流至指定节点。</p>
+            </div>
+            <div class="faq-item">
+                <strong>支持自定义域名与播放器样式吗？</strong>
+                <p>支持。控制台可绑定自有域名，同时提供 css 变量覆盖播放器配色、按钮圆角等视觉参数。</p>
+            </div>
+            <div class="faq-item">
+                <strong>数据统计包含哪些指标？</strong>
+                <p>实时在线、累计观看、平均观看时长、地域分布、推流帧率/码率曲线，以及弹幕/礼物互动频次。</p>
+            </div>
+        </div>
+        <p style="margin-top:1.4rem;font-size:0.98rem;color:#3e2b1b;line-height:1.6;">以上说明基于平台通用功能，具体版本与配置可参考官方文档或咨询技术支持。</p>
+    </section>
+
+    <!-- 一个引导性句子，内嵌链接，同时作为按钮感链接示例 -->
+    <div style="display:flex; justify-content:center; margin: 1.6rem 0 0.8rem;">
+        <a href="https://indexs-youzhibo.com" class="link-button">优直播</a>
+    </div>
+    <p style="text-align:center; max-width:540px; margin:0 auto; color:#4d3422; font-size:0.96rem;">
+        若希望进一步了解编码建议、场景配置或 API 集成，可直接查阅
+        <a href="https://indexs-youzhibo.com" class="inline-link">优直播</a> 站点内的文档与案例。
+    </p>
+
+    <div class="footer-note">
+        <span>轻量导航 · 基于实际产品特性整理</span>
+    </div>
+</div>
+</body>
+</html>

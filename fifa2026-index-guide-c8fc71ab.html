@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>专题 · 世界杯 · 2026</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f9f8f5;
+      font-family: "Georgia", "Noto Serif SC", "Times New Roman", serif;
+      color: #1e1e1e;
+      line-height: 1.7;
+      letter-spacing: 0.02em;
+      padding: 0 1.2rem;
+    }
+
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 3.5rem 0 4rem;
+    }
+
+    /* ----- hero 横幅 ----- */
+    .hero {
+      margin-bottom: 3.2rem;
+      border-bottom: 1px solid #d8d2c4;
+      padding-bottom: 1.8rem;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      margin-bottom: 0.25rem;
+      color: #1c1c1a;
+    }
+
+    .hero .sub {
+      font-size: 0.9rem;
+      color: #7d7568;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-top: 0.4rem;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-weight: 300;
+    }
+
+    .hero em {
+      font-style: italic;
+      color: #b8432e;
+    }
+
+    /* ----- 背景说明 ----- */
+    .background-note {
+      background: #f0ece2;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2.5rem;
+      border-left: 3px solid #b8432e;
+      font-size: 0.95rem;
+      color: #3b372f;
+    }
+
+    .background-note p {
+      margin-bottom: 0.4rem;
+    }
+
+    .background-note p:last-child {
+      margin-bottom: 0;
+    }
+
+    .background-note .label {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: #8a7e6b;
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    /* ----- 文章分段 ----- */
+    .section {
+      margin-bottom: 2.8rem;
+    }
+
+    .section h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      color: #2b2924;
+      border-bottom: 1px dashed #c8c0b2;
+      padding-bottom: 0.4rem;
+    }
+
+    .section p {
+      margin-bottom: 1rem;
+    }
+
+    .section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .pull-quote {
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #7a6d58;
+      line-height: 1.5;
+      padding: 0.6rem 0 0.6rem 1.2rem;
+      border-left: 2px solid #c6b8a2;
+      margin: 1.5rem 0 1.2rem 0;
+    }
+
+    .inline-link {
+      color: #b8432e;
+      text-decoration: none;
+      border-bottom: 1px dotted #b8432e;
+      transition: border-bottom 0.2s;
+    }
+
+    .inline-link:hover {
+      border-bottom: 1px solid #b8432e;
+    }
+
+    /* ----- FAQ 摘要（极简） ----- */
+    .faq-summary {
+      background: #ffffff;
+      border: 1px solid #d4cdbe;
+      padding: 1.6rem 2rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .faq-summary h3 {
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #726653;
+      margin-bottom: 1rem;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+      border-bottom: 1px dotted #ddd6c8;
+      padding-bottom: 0.8rem;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .faq-item .q {
+      font-weight: 600;
+      color: #2f2b24;
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-item .a {
+      font-size: 0.9rem;
+      color: #5b5447;
+    }
+
+    /* ----- 页尾访问提示 ----- */
+    .footer-note {
+      border-top: 1px solid #d8d2c4;
+      padding-top: 1.8rem;
+      margin-top: 1rem;
+      text-align: left;
+      font-size: 0.95rem;
+      color: #413d35;
+    }
+
+    .footer-note p {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-note .small-print {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.75rem;
+      color: #9a8f7d;
+      margin-top: 0.8rem;
+    }
+
+    /* ----- 响应式细节 ----- */
+    @media (max-width: 520px) {
+      .page {
+        padding: 2rem 0 3rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .background-note {
+        padding: 1.2rem 1.2rem;
+      }
+      .faq-summary {
+        padding: 1.2rem 1.2rem;
+      }
+      .pull-quote {
+        margin-left: 0;
+        padding-left: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 首页横幅 hero -->
+  <div class="hero">
+    <h1>六大赛区 · 一个<em>世界杯</em></h1>
+    <div class="sub">2026 · 北美 · 第23届</div>
+  </div>
+
+  <!-- 背景说明 -->
+  <div class="background-note">
+    <span class="label">/// 稳定入口</span>
+    <p>关于即将到来的盛事，信息往往散落各处。对于希望直接了解赛事动态的观众而言，一个简洁、可靠的页面入口能省去大量搜索时间。正因如此，<a href="https://fifa2026-index.com" class="inline-link">世界杯</a>的专题索引页被设计为轻量级的起点——它不试图涵盖所有细节，而是提供结构清晰的路径与说明，帮你更快找到自己关心的部分。</p>
+    <p>无论你是想回顾预选赛进程，还是关注主办城市的筹备进展，从一个安静的入口开始，总比在信息洪流中迷失要好。我们相信，好的页面和好的比赛一样，节奏与留白至关重要。</p>
+  </div>
+
+  <!-- 三段自然介绍 -->
+  <div class="section">
+    <h2>从北美腹地出发</h2>
+    <p>2026年的世界杯决赛圈将横跨美国、加拿大与墨西哥，共十六座城市承担比赛任务。这样的地理跨度前所未有：从西雅图的雨雾到墨西哥城的阳光，从温哥华的海岸到休斯顿的穹顶球场，赛事本身变成了一次大陆旅行。</p>
+    <p>对球迷而言，这意味着时区、语言与文化的多重切换。但也正因为如此，这届赛事拥有了更多元的叙事角度。作为信息索引页，我们更关注如何让不同区域的观众都能快速找到对应的赛程、场馆与出行提示。一个稳定的链接结构，比花哨的动效更实际。</p>
+  </div>
+
+  <div class="section">
+    <h2>容量与节奏</h2>
+    <p>扩军至48支球队后，比赛场次增加到104场。赛程密度提升，但观赛体验不应被稀释。我们在这份索引页中尝试用一种接近杂志专题的方式，把信息模块化：背景说明、城市速览、常见问题摘要——每块内容都保持独立而不冗余。</p>
+    <div class="pull-quote">
+      “世界杯的吸引力一部分来自未知，另一部分来自可以信赖的指引。”
+    </div>
+    <p>正因为如此，页面的视觉语言被刻意简化：窄正文宽度让阅读视线集中，标题层级清晰，留白充足。即使是快速浏览，也能感知到内容的边界与节奏。我们希望这种呈现方式，能让访问者在打开页面时感到从容，而不是急切。</p>
+  </div>
+
+  <div class="section">
+    <h2>不止于比赛</h2>
+    <p>世界杯从来不只是九十或一百二十分钟的事情。它关乎球迷从各地涌入主办城市，关乎街头巷尾的旗帜与歌声，也关乎那些在屏幕前熬夜守候的夜晚。一个索引页无法承载所有这些情绪，但可以成为一个安静的起点。</p>
+    <p>通过这个页面，你可以了解赛事架构、访问各赛区的基础信息，也可以把它当作一个随时可以回来查看的参考点。毕竟，一届世界杯的准备工作长达数年，而一个稳定的页面入口，能够陪伴你从资格赛一直走到决赛夜。</p>
+  </div>
+
+  <!-- FAQ 摘要（简洁克制） -->
+  <div class="faq-summary">
+    <h3>简短问答</h3>
+    <div class="faq-item">
+      <div class="q">页面内容会随赛事推进更新吗？</div>
+      <div class="a">是的，索引页会跟随赛事阶段调整核心模块，保持信息与当前赛程同步。具体更新频率视比赛进展而定，至少每周一次。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">是否需要注册或下载额外工具？</div>
+      <div class="a">不需要。整个页面为纯静态页面，无需登录、下载或安装任何程序。访问即阅。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">移动端浏览体验如何？</div>
+      <div class="a">页面采用响应式布局，在手机与平板设备上均可正常阅读。正文宽度自动适配，字号与间距也会随屏幕尺寸微调。</div>
+    </div>
+  </div>
+
+  <!-- 页尾访问提示 -->
+  <div class="footer-note">
+    <p>如果你想直接了解赛事全貌，可以从这里开始：<a href="https://fifa2026-index.com" class="inline-link">世界杯</a>——一个简洁的专题索引页，不绕路、不堆砌，只提供经过梳理的信息框架。</p>
+    <p>赛程、场馆、参赛队伍、东道主城市……一切都在稳步铺开。你也可以把它收藏起来，慢慢翻阅。</p>
+    <div class="small-print">
+      —— 杂志式索引 · 2026 世界杯 ——
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

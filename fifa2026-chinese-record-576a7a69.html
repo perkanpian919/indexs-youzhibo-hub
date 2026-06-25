@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 · 世界杯产品概览</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f4f9fc;
+      color: #14333b;
+      line-height: 1.5;
+      padding: 1.25rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* 网格卡片背景·蓝绿呼吸感 */
+    .grid-bg {
+      position: relative;
+    }
+
+    .grid-bg::before {
+      content: '';
+      position: absolute;
+      inset: -2rem -1rem;
+      background-image:
+        linear-gradient(rgba(28, 138, 128, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(28, 138, 128, 0.08) 1px, transparent 1px);
+      background-size: 2.25rem 2.25rem;
+      pointer-events: none;
+      z-index: 0;
+      border-radius: 2rem;
+    }
+
+    /* hero区域 */
+    .hero {
+      position: relative;
+      z-index: 1;
+      padding: 2.8rem 0 1.6rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 650;
+      letter-spacing: -0.01em;
+      background: linear-gradient(145deg, #0f5950, #1b8980);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .sub {
+      font-size: 1rem;
+      color: #2a6b64;
+      border-left: 4px solid #2fafa0;
+      padding-left: 1rem;
+      max-width: 46rem;
+      margin: 0.5rem 0 0;
+    }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2.8rem 0 2.2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(4px);
+      border-radius: 1.4rem;
+      padding: 1.6rem 1.4rem;
+      box-shadow: 0 4px 12px rgba(13, 86, 78, 0.06);
+      border: 1px solid rgba(43, 155, 140, 0.15);
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 24px rgba(21, 117, 104, 0.10);
+      transform: translateY(-3px);
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #0d534a;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .card h3 i {
+      display: inline-block;
+      width: 0.5rem;
+      height: 0.5rem;
+      background: #1d9b8b;
+      border-radius: 1px;
+      margin-right: 0.25rem;
+    }
+
+    .card p, .card li {
+      font-size: 0.92rem;
+      color: #1a4440;
+      margin-bottom: 0.2rem;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card ul li::before {
+      content: "▹ ";
+      color: #249d8c;
+      font-weight: 600;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #d5f0eb;
+      color: #0a5e53;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.15rem 0.7rem;
+      border-radius: 30px;
+      margin-top: 0.45rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* 场景 + 提示区 用双卡片并排 */
+    .double {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 1.8rem 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .insight-card {
+      background: white;
+      border-radius: 1.2rem;
+      padding: 1.5rem 1.3rem;
+      box-shadow: 0 2px 10px rgba(11, 78, 70, 0.04);
+      border: 1px solid #e3f1ed;
+    }
+
+    .insight-card h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #115e54;
+      margin-bottom: 0.8rem;
+      border-bottom: 2px solid #bbebe2;
+      padding-bottom: 0.35rem;
+    }
+
+    .insight-card p {
+      font-size: 0.9rem;
+      color: #1b4a44;
+    }
+
+    .insight-card .faq-item {
+      margin-top: 0.9rem;
+      font-size: 0.85rem;
+    }
+
+    .faq-item strong {
+      color: #0a6457;
+      font-weight: 600;
+    }
+
+    .insight-card .faq-item + .faq-item {
+      border-top: 1px dashed #cde3de;
+      padding-top: 0.7rem;
+    }
+
+    /* 链接自然嵌入句子 */
+    .link-sentence {
+      position: relative;
+      z-index: 1;
+      background: #e5f5f0;
+      padding: 1.4rem 1.6rem;
+      border-radius: 2rem;
+      margin: 0.8rem 0 2rem;
+      font-size: 0.96rem;
+      color: #13423c;
+      border-left: 6px solid #1d9b8b;
+    }
+
+    .link-sentence a {
+      color: #095b4f;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #51b9ab;
+      transition: color 0.2s;
+    }
+
+    .link-sentence a:hover {
+      color: #062f28;
+      text-decoration-color: #166b5e;
+    }
+
+    .footnote {
+      font-size: 0.78rem;
+      color: #3f6e68;
+      border-top: 1px solid #c6e0d9;
+      padding-top: 1.2rem;
+      margin-top: 1rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      body {
+        padding: 0.75rem;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .double {
+        grid-template-columns: 1fr;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .link-sentence {
+        padding: 1rem 1.2rem;
+        font-size: 0.9rem;
+      }
+
+      .grid-bg::before {
+        background-size: 1.6rem 1.6rem;
+        inset: -1rem -0.5rem;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container grid-bg">
+  <section class="hero">
+    <h1>世界杯 · 产品说明</h1>
+    <div class="sub">聚焦2026年核心赛事，从观赛路径、信息聚合到内容理解，提供结构清晰的参考框架。</div>
+  </section>
+
+  <!-- 卡片亮点 3 张 -->
+  <div class="card-grid">
+    <div class="card">
+      <h3><i></i>摘要 · 赛事信息流</h3>
+      <p>整合赛程、分组、场地与球队动态，保持低噪、高密度的资讯输出。基于公开数据和官方渠道交叉整理，减少信息过载。</p>
+      <span class="tag">赛程 · 分组</span>
+    </div>
+    <div class="card">
+      <h3><i></i>亮点 · 内容切片</h3>
+      <ul>
+        <li>关键比赛日倒计时与场馆速览</li>
+        <li>参赛队阵容变动与战术简报</li>
+        <li>历史数据对照及晋级推演</li>
+      </ul>
+      <span class="tag">数据 · 维基</span>
+    </div>
+    <div class="card">
+      <h3><i></i>使用建议 · 场景适配</h3>
+      <p>适合赛前研究、观赛中快速查阅、赛后复盘。桌面端浏览完整表格，移动端优先展示核心时间线和焦点对阵。</p>
+      <span class="tag">移动优先</span>
+    </div>
+  </div>
+
+  <!-- 双栏：使用场景 + FAQ 摘要 (可信克制) -->
+  <div class="double">
+    <div class="insight-card">
+      <h4>🏟️ 典型使用场景</h4>
+      <p>赛前查阅完整赛历与场地信息，比对历史交锋；赛中实时查看进球与换人摘要；赛后通过结构化数据回顾关键事件。</p>
+      <div style="margin-top: 0.7rem; font-size: 0.85rem; color: #1b655a;">
+        <span style="background: #e8f3ef; padding: 0.1rem 0.6rem; border-radius: 30px;">支持 RSS 订阅</span>
+        <span style="background: #e8f3ef; padding: 0.1rem 0.6rem; border-radius: 30px; margin-left: 0.5rem;">无广告干扰</span>
+      </div>
+    </div>
+    <div class="insight-card">
+      <h4>📌 FAQ 摘要</h4>
+      <div class="faq-item"><strong>数据更新频率？</strong> 每日同步官方渠道，重大变动 2 小时内反映。</div>
+      <div class="faq-item"><strong>是否包含博彩内容？</strong> 不提供赔率、预测及投注引导，仅做赛事信息聚合。</div>
+      <div class="faq-item"><strong>移动端兼容？</strong> 全响应式布局，支持深色模式（跟随系统）。</div>
+    </div>
+  </div>
+
+  <!-- 嵌入链接自然句子，必须包含“世界杯”三个字为可见文本 -->
+  <div class="link-sentence">
+    若需了解完整的赛程、分组与球队数据库，可直接访问 <a href="https://fifa2026-chinese.com">世界杯</a> 信息站，内容基于公开资料整理，提供多维度筛选与离线阅读支持。
+  </div>
+
+  <!-- 可信但克制的访问说明 -->
+  <div style="position: relative; z-index: 1; background: white; border-radius: 1.5rem; padding: 1.2rem 1.6rem; margin: 1rem 0 0.4rem; border: 1px solid #d7ece5;">
+    <p style="font-size: 0.88rem; color: #144a43;"><strong style="color: #0a6457;">访问说明</strong> · 该站点不存储个人数据，不设置追踪脚本，所有赛事信息引用自 FIFA 官方及主流通讯社。建议使用现代浏览器，以获得完整的网格布局与卡片动效体验。</p>
+  </div>
+
+  <div class="footnote">
+    <span>产品概述 · 2026 世界杯主题 · 信息密度优先</span>
+  </div>
+</div>
+</body>
+</html>

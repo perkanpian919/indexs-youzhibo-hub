@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026年世界杯 · 资料索引与注解</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f5f7fa;
+            color: #1d2b3a;
+            line-height: 1.7;
+        }
+        .hero {
+            background: linear-gradient(145deg, #0b1a2c 0%, #142b3f 100%);
+            min-height: 44vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #f5a623, #d97706, #f5a623);
+            opacity: 0.7;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #e9eef3;
+            margin-bottom: 0.6rem;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+        .hero .sub {
+            font-size: 1.2rem;
+            color: #b6cddf;
+            max-width: 640px;
+            margin-top: 0.3rem;
+            border-bottom: 1px dotted rgba(255,255,255,0.2);
+            padding-bottom: 0.6rem;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3.5rem 2rem;
+        }
+        .intro-block {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.5rem 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 28px rgba(0, 20, 30, 0.04);
+            border: 1px solid #eef2f6;
+        }
+        .intro-block p {
+            font-size: 1.08rem;
+            margin-bottom: 1.4rem;
+            color: #2c3e50;
+        }
+        .intro-block p:last-child {
+            margin-bottom: 0;
+        }
+        .inline-link {
+            color: #b45309;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+            padding-bottom: 1px;
+        }
+        .inline-link:hover, .inline-link:focus {
+            color: #7b3a00;
+            border-bottom-color: #b45309;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2.8rem 0 1.8rem;
+        }
+        .feature-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.6rem;
+            border: 1px solid #e5eaef;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+        }
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+        }
+        .feature-card .icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.4rem;
+            display: inline-block;
+        }
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #0b1a2c;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.3px;
+        }
+        .feature-card p {
+            color: #3e5365;
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.2rem 2.8rem;
+            margin: 3rem 0 0;
+            border: 1px solid #eef2f6;
+        }
+        .faq-mini h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #142b3f;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #b45309;
+            padding-left: 1rem;
+        }
+        .faq-item {
+            margin-bottom: 1.3rem;
+        }
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #0f2b3e;
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+        .faq-item p {
+            color: #3c5a70;
+            font-size: 0.98rem;
+            margin-left: 0.2rem;
+        }
+        .soft-end {
+            margin-top: 3.2rem;
+            padding: 2rem 0 1rem;
+            text-align: center;
+            border-top: 1px solid #dce3e9;
+            color: #5d7183;
+            font-size: 0.95rem;
+        }
+        .soft-end span {
+            display: inline-block;
+            margin: 0 0.6rem;
+        }
+        .soft-end a {
+            color: #b45309;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .soft-end a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 680px) {
+            .hero h1 { font-size: 2rem; }
+            .hero .sub { font-size: 1rem; }
+            .container { padding: 2rem 1.2rem; }
+            .intro-block { padding: 1.8rem 1.4rem; }
+            .faq-mini { padding: 1.6rem 1.2rem; }
+            .feature-grid { gap: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <h1>2026 · 世界杯档案</h1>
+    <div class="sub">资料索引 · 赛程脉络 · 背景注释</div>
+</header>
+
+<main class="container">
+
+    <!-- 故事叙述式开场 -->
+    <div class="intro-block">
+        <p>从1930年第一届赛事至今，世界杯始终是全球体育信息最密集、资料跨度最广的综合性事件。2026年由美国、加拿大、墨西哥联合主办，首次扩军至48支球队，赛程与地理跨度均创历史之最。面对规模膨胀后的赛历、场馆、转播与资格体系，系统化的资料整理比以往任何时候都重要。</p>
+        <p>本站尝试以朴素索引的方式，梳理2026年<a href="https://fifa2026-hub.com" class="inline-link">世界杯</a>的核心数据节点：主办城市与球场信息、小组赛阶段划分、历届纪录对照、以及各足联的晋级路径。不追求即时推送与碎片新闻，而是提供可反复查阅的结构化笔记——对于观赛者、资料研究者或赛事分析而言，或许能省去若干次分散搜索的时间。</p>
+    </div>
+
+    <!-- 特点列表（卡片网格） -->
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="icon">📋</div>
+            <h3>赛程框架</h3>
+            <p>小组赛、淘汰赛阶段日期及场地分布；48队赛制下轮次逻辑与以往差异。包含关键时间节点与开球时间参考。</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🏟️</div>
+            <h3>场馆档案</h3>
+            <p>16个主办球场基础数据：容量、启用年份、海拔、草坪类型；三国内的城市交通与气候简讯。</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">📊</div>
+            <h3>资格体系</h3>
+            <p>各大洲足联名额分配、预选赛阶段与关键附加赛说明；历史数据对比2018、2022两届名额变化。</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">📖</div>
+            <h3>纪录参考</h3>
+            <p>历届冠军、射手榜、最大比分、出场纪录等常查数据；2026年可能打破的若干已有纪录一览。</p>
+        </div>
+    </div>
+
+    <!-- 承接段落：信息索引的视角 -->
+    <div class="intro-block" style="margin-top: 0.4rem;">
+        <p>资料索引本身不是终点，而是降低信息过载的手段。2026年世界杯从预选赛到决赛周期长达近三年，分散在数十个时区与语言区域，单一来源很难覆盖全部细节。因此以分类清单、对照表格、注释短评作为基础结构，比堆砌新闻更利于长期参考。无论是研究赛制演进、球队战术趋势，还是单纯规划观赛日程，一份干净的资料索引都能作为起点。</p>
+        <p>本站目前收录了约四十条分类索引，涵盖赛事规程、裁判名单、吉祥物与官方标识细节等边缘但有用的条目。所有内容均以静态页面组织，不依赖数据库，可离线阅读。索引条目会随官方公告逐步更新，避免未经核实的传闻进入正文。</p>
+    </div>
+
+    <!-- FAQ 摘要（温和节奏） -->
+    <div class="faq-mini">
+        <h2>常见资料问题</h2>
+        <div class="faq-item">
+            <strong>为什么2026年世界杯被称为“三洲之旅”？</strong>
+            <p>并非三洲，而是三个主权国家联合主办：美国、加拿大、墨西哥。由于国土跨度大，部分比赛区间将跨越不同气候带与时区，这也是首次由三个国家共同承办。</p>
+        </div>
+        <div class="faq-item">
+            <strong>48支球队的小组赛如何编排？</strong>
+            <p>初步方案为12个小组（每组4队），小组前两名与8个成绩最好的小组第三晋级32强淘汰赛。具体分组抽签规则尚未最终确认，但基本框架已由FIFA理事会通过。</p>
+        </div>
+        <div class="faq-item">
+            <strong>资料索引的更新频率？</strong>
+            <p>主要更新节点包括：预选赛抽签、资格赛关键阶段、决赛圈分组抽签、以及赛前最后的确认公告。非必要不频繁修改已核实的条目。</p>
+        </div>
+        <div style="margin-top: 1.4rem; font-size: 0.95rem; border-top: 1px dashed #dce3e9; padding-top: 1.2rem; color: #3a556b;">
+            <p>更多索引与注释可在 <a href="https://fifa2026-hub.com" class="inline-link">世界杯</a> 页面中找到。所有条目均标注来源或备注，便于交叉验证。</p>
+        </div>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="soft-end">
+        <span>索引持续整理 · 内容仅供参考</span>
+        <span>·</span>
+        <span>数据来源以FIFA官方文件为准</span>
+        <span>·</span>
+        <span><a href="https://fifa2026-hub.com">世界杯</a></span>
+    </div>
+
+</main>
+
+</body>
+</html>

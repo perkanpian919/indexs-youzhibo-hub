@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2, user-scalable=yes">
+    <title>世界杯 · 再次访问与收藏指南</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #f4f9fc;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e2e36;
+            line-height: 1.6;
+            padding: 20px 16px 40px;
+        }
+
+        .container {
+            max-width: 1024px;
+            margin: 0 auto;
+        }
+
+        /* 蓝绿色点缀调性 */
+        :root {
+            --teal: #2a9d8f;
+            --teal-light: #e5f4f2;
+            --teal-dark: #1b7a6f;
+            --card-bg: #ffffff;
+            --border-light: #d6e9e6;
+            --text-soft: #3c5a5e;
+            --shadow-card: 0 4px 12px rgba(42, 157, 143, 0.08);
+        }
+
+        /* --- hero区 --- */
+        .hero {
+            background: linear-gradient(145deg, #e1f0ee 0%, #cde8e3 100%);
+            border-radius: 36px 36px 28px 28px;
+            padding: 2.8rem 1.8rem 2.5rem;
+            margin-bottom: 2.8rem;
+            text-align: center;
+            box-shadow: 0 6px 14px rgba(42, 157, 143, 0.10);
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 10%;
+            width: 80%;
+            height: 10px;
+            background: rgba(42, 157, 143, 0.15);
+            border-radius: 50%;
+            filter: blur(6px);
+            z-index: 0;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 620;
+            color: #174e48;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.6rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #1f4a47;
+            max-width: 580px;
+            margin: 0.5rem auto 1.4rem;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: #ffffffd9;
+            backdrop-filter: blur(2px);
+            padding: 0.4rem 1.4rem;
+            border-radius: 40px;
+            border: 1px solid #b5d6d0;
+            font-size: 0.85rem;
+            color: #1b7064;
+            margin-top: 0.2rem;
+            font-weight: 450;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .hero .badge span {
+            color: #164e47;
+            font-weight: 600;
+        }
+
+        /* 网格卡片 */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin: 2.2rem 0 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 1.6rem 1.2rem 1.5rem;
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border-light);
+            transition: transform 0.1s ease, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 18px rgba(42, 157, 143, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #1c564e;
+            margin-bottom: 0.35rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card h3 i {
+            font-style: normal;
+            background: #cae1dd;
+            border-radius: 30px;
+            padding: 0 0.5rem;
+            font-size: 0.8rem;
+            color: #154e46;
+        }
+
+        .card p, .card li {
+            font-size: 0.95rem;
+            color: var(--text-soft);
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0.3rem 0 0;
+        }
+
+        .card ul li {
+            padding: 0.25rem 0 0.25rem 0.6rem;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: '◇';
+            color: #2a9d8f;
+            font-size: 0.8rem;
+            position: absolute;
+            left: -0.2rem;
+            top: 0.25rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #dff0ed;
+            border-radius: 20px;
+            padding: 0.1rem 0.9rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #12534a;
+            letter-spacing: 0.02em;
+        }
+
+        /* 说明区(宽卡片) */
+        .info-block {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 1.8rem 2rem 2rem;
+            margin: 1.6rem 0 2rem;
+            border: 1px solid #d0e6e1;
+            box-shadow: 0 3px 10px rgba(42, 157, 143, 0.04);
+        }
+
+        .info-block h2 {
+            font-size: 1.5rem;
+            font-weight: 580;
+            color: #174e48;
+            border-left: 5px solid #2a9d8f;
+            padding-left: 0.9rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .info-block p {
+            color: #2d4c4a;
+            margin-bottom: 0.8rem;
+        }
+
+        .info-block .highlight {
+            background: #e7f3f1;
+            border-radius: 20px;
+            padding: 0.1rem 0.8rem;
+            color: #10554b;
+            font-weight: 500;
+        }
+
+        /* FAQ摘要 风格简洁 */
+        .faq-summary {
+            background: var(--teal-light);
+            border-radius: 30px;
+            padding: 1.5rem 1.8rem 1.8rem;
+            margin: 2.2rem 0 1.8rem;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #164e46;
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #bad6d0;
+            padding: 0.7rem 0;
+        }
+
+        .faq-item:last-of-type {
+            border-bottom: 0;
+        }
+
+        .faq-item strong {
+            color: #0d4941;
+            display: block;
+            font-weight: 550;
+            margin-bottom: 0.1rem;
+        }
+
+        .faq-item p {
+            margin: 0.1rem 0 0;
+            font-size: 0.9rem;
+            color: #2b554f;
+        }
+
+        .more-faq {
+            text-align: right;
+            margin-top: 0.7rem;
+            font-size: 0.9rem;
+        }
+
+        .more-faq a {
+            color: #1b7a6f;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dashed #2a9d8f;
+        }
+
+        /* 底部链接区 */
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem 2rem;
+            margin-top: 2.8rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #cde0dc;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a {
+            color: #1a6a60;
+            text-decoration: none;
+            border-bottom: 1px dotted #7bb7ae;
+        }
+
+        .footer-links a:hover {
+            color: #0e453e;
+            border-bottom: 1px solid #2a9d8f;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 1.2rem;
+            color: #52726b;
+            font-size: 0.8rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            .grid-2col {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+
+            .hero {
+                padding: 2rem 1.2rem 2rem;
+            }
+
+            .info-block {
+                padding: 1.2rem 1.2rem 1.5rem;
+            }
+
+            .faq-summary {
+                padding: 1.2rem 1rem 1.4rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            body {
+                padding: 12px 10px 30px;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- hero 区 -->
+        <div class="hero">
+            <h1>世界杯 · 持续关注</h1>
+            <p>把感兴趣的页面收藏起来，下次再访更从容。每一次返回，都能看到整理后的信息框架。</p>
+            <div class="badge">
+                ⚽ 再次访问 &nbsp;<span>·</span>&nbsp; 标记收藏 &nbsp;<span>·</span>&nbsp; 慢慢看
+            </div>
+        </div>
+
+        <!-- 优势区：网格卡片 -->
+        <div class="grid-2col">
+            <div class="card">
+                <h3>📌 收藏即备忘</h3>
+                <p>将页面加入浏览器书签或手机收藏夹，下次无需重新搜索。资料页会持续汇集与<a href="https://fifa2026-line.com" style="color:#1b7a6f; text-decoration: underline; text-underline-offset: 3px;">世界杯</a>相关的动态说明。</p>
+                <ul>
+                    <li>快速回到信息总览</li>
+                    <li>避免重复查找</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>🔄 回访更流畅</h3>
+                <p>页面结构保持稳定，无论何时再访，都能直接找到重点。已读内容不必重读，直接定位新补充的部分。</p>
+                <div style="margin-top: 0.3rem;"><span class="tag">滚动记录</span> <span class="tag">书签友好</span></div>
+            </div>
+        </div>
+
+        <!-- 说明区：从持续关注的角度 -->
+        <div class="info-block">
+            <h2>为什么值得再次打开？</h2>
+            <p>对于赛程、球队资讯或观赛指南，很多时候第一遍只是粗略浏览。信息需要反复消化，而且随着日期临近，内容会更新。把页面留在收藏夹里，等于为自己留了一条轻快的回头路。</p>
+            <p>这次的页面围绕“再次访问”的习惯设计：关键条目、常见疑问、链接归纳在固定区域。即便隔了一周再看，也不会迷失。</p>
+            <p><span class="highlight">小提示</span> 在桌面浏览器可以按 <strong>Ctrl+D</strong> (或 Cmd+D) 快速收藏；手机端点击分享图标 → 加入书签。</p>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-summary">
+            <h2>❓ 常见疑问 · 摘要</h2>
+            <div class="faq-item">
+                <strong>页面内容会变化吗？</strong>
+                <p>会有适度更新，主要是信息梳理与补充说明。核心框架保持稳定，方便回访者定位。</p>
+            </div>
+            <div class="faq-item">
+                <strong>怎样记住这个地址？</strong>
+                <p>建议将 <a href="https://fifa2026-line.com" style="color:#125e52; text-decoration: underline;">世界杯</a> 页面添加到浏览器书签。也可以在主屏幕创建快捷方式（iOS Safari / Android Chrome）。</p>
+            </div>
+            <div class="faq-item">
+                <strong>移动端阅读体验如何？</strong>
+                <p>卡片和文字针对手机屏幕做了适配，字号清晰，间距舒适。横屏或平板阅读效果同样友好。</p>
+            </div>
+            <div class="more-faq">
+                <a href="#">更多内容（预留）</a>
+            </div>
+        </div>
+
+        <!-- 底部链接区 -->
+        <div class="footer-links">
+            <a href="https://fifa2026-line.com">世界杯</a>
+            <a href="#">收藏说明</a>
+            <a href="#">回访指引</a>
+            <span style="color: #5b7e77;">· 持续关注 ·</span>
+        </div>
+        <div class="footer-note">
+            页面信息仅供参考，具体以官方渠道为准。再次访问，让信息沉淀。
+        </div>
+    </div>
+</body>
+</html>
